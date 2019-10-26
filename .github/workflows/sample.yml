@@ -17,6 +17,7 @@ jobs:
         refs: hamadakafu-patch-1
         access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         username: hamadakafu
+        email: kafu.h1998@gmail.com
         commit_message: push from commit-another-repository
         command: |
           ls -lat

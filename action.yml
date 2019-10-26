@@ -1,6 +1,6 @@
-name: 'Sed antother repo'
+name: 'Commit another repository'
 
-description: 'Greet someone and record the time'
+description: 'commit another repository'
 
 inputs:
   repository:
