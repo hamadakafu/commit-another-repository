@@ -8,6 +8,7 @@ apk --no-cache add git
 echo "$*"
 
 git config --global user.name $INPUT_USERNAME
+git config --global user.email $INPUT_EMAIL
 git clone https://$INPUT_ACCESS_TOKEN@github.com/$INPUT_REPOSITORY
 
 dirname=$(echo -n $INPUT_REPOSITORY | awk -F/ '{print $2}')
