@@ -15,6 +15,7 @@ jobs:
       with:
         repository: hamadakafu/git-practice
         refs: hamadakafu-patch-1
+        access_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         username: hamadakafu
         commit_message: push from commit-another-repository
         command: |
