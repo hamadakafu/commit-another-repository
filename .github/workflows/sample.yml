@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@master
     - uses: hamadakafu/commit-another-repository@master
       with:
-        repository: hamadakafu/
+        repository: hamadakafu/git-practice
         refs: hamadakafu-patch-1
         username: hamadakafu
         commit_message: push from commit-another-repository
