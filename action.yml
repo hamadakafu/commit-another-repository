@@ -1,0 +1,40 @@
+name: 'Sed antother repo'
+
+description: 'Greet someone and record the time'
+
+inputs:
+  repository:
+    description: 'repository name, ex) actions/checkout'
+    required: true
+
+  refs:
+    description: 'ex) refs/heads/master'
+    required: false
+    default: 'refs/heads/master'
+
+  username:
+    description: 'github username'
+    required: true
+
+  access_token:
+    description: 'personal access token'
+    required: true
+
+  command:
+    description: 'running command in alpine container'
+    required: true
+
+  commit_message:
+    description: 'commit message'
+    required: false
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository }}
+    - ${{ inputs.refs }}
+    - ${{ inputs.username }}
+    - ${{ inputs.access_token }}
+    - ${{ inputs.command }}
+    - ${{ inputs.commit_message }}

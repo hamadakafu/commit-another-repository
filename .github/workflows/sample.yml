@@ -1,0 +1,22 @@
+name: sample
+
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - uses: hamadakafu/commit-another-repository@master
+      with:
+        repository: hamadakafu/
+        refs: hamadakafu-patch-1
+        username: hamadakafu
+        commit_message: push from commit-another-repository
+        command: |
+          ls -lat
+          env
