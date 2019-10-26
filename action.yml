@@ -26,7 +26,7 @@ inputs:
 
   commit_message:
     description: 'commit message'
-    required: false
+    required: true
 
 runs:
   using: 'docker'

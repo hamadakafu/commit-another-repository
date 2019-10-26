@@ -20,3 +20,4 @@ jobs:
         command: |
           ls -lat
           env
+          apk --no-cache add yq

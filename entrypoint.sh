@@ -7,16 +7,21 @@ env
 
 echo "$*"
 
-# git clone https://<token>@github.com/owner/repo.git
-# git clone https://github.com/hamadakafu/argocd-sample.git
-# cd argocd-sample
-# git remote set-url --push origin https://hamadakafu:${{ secrets.SAMPLE_GITHUB_TOKEN }}@github.com/hamadakafu/argocd-sample
-# ls -lat
-# git log --oneline
-# sudo snap install yq
-# yq --version
-# yq w --inplace charts/sample-helm-chart/values.yaml 'image.tag' 1.6
-# git config --global user.name "hamadakafu"
-# git commit -am "change image tag"
-# git push
-# 
+git config --global user.name $INPUT_USERNAME
+git clone https://$INPUT_ACCESS_TOKEN@github.com/$INPUT_REPOSITORY
+
+dirname=$(echo -n $INPUT_REPOSITORY | awk -F/ '{print $2}')
+cd $dirname 
+
+if [ -n "$INPUT_REFS" ]; then
+    git checkout $INPUT_REFS
+else
+    git checkout master
+fi
+
+git remote set-url --push origin https://$INPUT_USERNAME:$INPUT_ACCESS_TOKEN@github.com/$INPUT_REPOSITORY
+
+sh -c "$INPUT_COMMAND"
+
+git commit -am "$INPUT_COMMIT_MESSAGE"
+git push
